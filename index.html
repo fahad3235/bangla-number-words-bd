@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title">বাংলা সংখ্যা-শব্দ টুলকিট | Bangla Number Words</title>
+<meta name="description" content="সংখ্যাকে বাংলা কথায় লিখুন — চেক-স্টাইলে টাকার অঙ্ক, অঙ্ক রূপান্তর ও লাখ-কোটি ব্যাখ্যা। সম্পূর্ণ অফলাইন।">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="brand-mark">১২৩</span>
+      <div>
+        <h1 data-i18n="brand.name">বাংলা সংখ্যা-শব্দ টুলকিট</h1>
+        <p class="tagline" data-i18n="brand.tagline">সংখ্যা → কথায় · চেক-স্টাইল অঙ্ক · অঙ্ক রূপান্তর · লাখ-কোটি ব্যাখ্যা</p>
+      </div>
+    </div>
+    <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">EN</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card" id="card-words" aria-labelledby="h-words">
+    <h2 id="h-words" data-i18n="words.title">সংখ্যা → কথায়</h2>
+    <p class="hint" data-i18n="words.hint">০ থেকে ৯৯,৯৯,৯৯,৯৯৯ পর্যন্ত পূর্ণসংখ্যা লিখুন</p>
+    <div class="row">
+      <input id="numInput" class="field" inputmode="numeric" autocomplete="off"
+             placeholder="যেমন: 123456789" aria-label="number input">
+      <button id="numGo" class="btn" type="button" data-i18n="common.convert">রূপান্তর</button>
+    </div>
+    <div class="chips" id="numExamples"></div>
+    <p class="error" id="numError" role="alert" hidden></p>
+    <div class="result" id="numResult" hidden>
+      <p class="result-label" data-i18n="words.result">বাংলায়:</p>
+      <p class="result-text" id="numWords"></p>
+      <button class="btn ghost copy-btn" type="button" data-copy="numWords" data-i18n="common.copy">কপি</button>
+    </div>
+    <p class="empty" id="numEmpty" data-i18n="words.empty">একটি সংখ্যা লিখলে এখানে বাংলায় দেখা যাবে।</p>
+  </section>
+
+  <section class="card" id="card-amount" aria-labelledby="h-amount">
+    <h2 id="h-amount" data-i18n="amount.title">টাকার অঙ্ক (চেক-স্টাইল)</h2>
+    <p class="hint" data-i18n="amount.hint">দশমিকসহ টাকার পরিমাণ লিখুন — চেক লেখার মতো কথায় পাবেন</p>
+    <div class="row">
+      <input id="amtInput" class="field" inputmode="decimal" autocomplete="off"
+             placeholder="যেমন: 2500.50" aria-label="amount input">
+      <button id="amtGo" class="btn" type="button" data-i18n="common.convert">রূপান্তর</button>
+    </div>
+    <div class="chips" id="amtExamples"></div>
+    <p class="error" id="amtError" role="alert" hidden></p>
+    <div class="result" id="amtResult" hidden>
+      <p class="result-label" data-i18n="amount.result">কথায়:</p>
+      <p class="result-text" id="amtWords"></p>
+      <button class="btn ghost copy-btn" type="button" data-copy="amtWords" data-i18n="common.copy">কপি</button>
+    </div>
+    <p class="empty" id="amtEmpty" data-i18n="amount.empty">টাকার অঙ্ক লিখলে এখানে “মাত্র”-সহ দেখা যাবে।</p>
+  </section>
+
+  <section class="card" id="card-digits" aria-labelledby="h-digits">
+    <h2 id="h-digits" data-i18n="digits.title">অঙ্ক রূপান্তরকারী</h2>
+    <p class="hint" data-i18n="digits.hint">যেকোনো লেখার ভেতরের অঙ্ক English ↔ বাংলা করুন</p>
+    <textarea id="digitInput" class="field area" rows="3"
+              placeholder="যেমন: Order 123, ফোন ০১৭১২-৩৪৫৬৭৮" aria-label="text with digits"></textarea>
+    <div class="row btns">
+      <button id="toBn" class="btn" type="button" data-i18n="digits.toBn">English → বাংলা</button>
+      <button id="toEn" class="btn" type="button" data-i18n="digits.toEn">বাংলা → English</button>
+    </div>
+    <div class="result" id="digitResult" hidden>
+      <p class="result-label" data-i18n="digits.result">ফলাফল:</p>
+      <p class="result-text" id="digitOut"></p>
+      <button class="btn ghost copy-btn" type="button" data-copy="digitOut" data-i18n="common.copy">কপি</button>
+    </div>
+    <p class="empty" id="digitEmpty" data-i18n="digits.empty">লেখা দিয়ে বোতাম চাপুন — অঙ্কগুলো রূপান্তরিত হবে।</p>
+  </section>
+
+  <section class="card" id="card-scale" aria-labelledby="h-scale">
+    <h2 id="h-scale" data-i18n="scale.title">বড় সংখ্যা ব্যাখ্যাকারী</h2>
+    <p class="hint" data-i18n="scale.hint">লাখ-কোটি বনাম মিলিয়ন-বিলিয়ন — এক নজরে</p>
+    <div class="row">
+      <input id="scaleInput" class="field" inputmode="numeric" autocomplete="off"
+             placeholder="যেমন: 25000000" aria-label="big number input">
+      <button id="scaleGo" class="btn" type="button" data-i18n="common.convert">রূপান্তর</button>
+    </div>
+    <p class="error" id="scaleError" role="alert" hidden></p>
+    <div class="result" id="scaleResult" hidden>
+      <dl class="scale-grid">
+        <div><dt data-i18n="scale.grouping">বাংলাদেশি গ্রুপিং</dt><dd id="scaleGrouping"></dd></div>
+        <div><dt data-i18n="scale.words">কথায়</dt><dd id="scaleWords"></dd></div>
+        <div><dt data-i18n="scale.lakh">লাখ</dt><dd id="scaleLakh"></dd></div>
+        <div><dt data-i18n="scale.crore">কোটি</dt><dd id="scaleCrore"></dd></div>
+        <div><dt data-i18n="scale.million">মিলিয়ন</dt><dd id="scaleMillion"></dd></div>
+        <div><dt data-i18n="scale.billion">বিলিয়ন</dt><dd id="scaleBillion"></dd></div>
+      </dl>
+    </div>
+    <p class="empty" id="scaleEmpty" data-i18n="scale.empty">সংখ্যা লিখলে লাখ-কোটি ও মিলিয়ন-বিলিয়ন মান দেখা যাবে।</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p data-i18n="footer.note">১০০% অফলাইন — সব হিসাব আপনার ডিভাইসেই হয়, কোনো তথ্য কোথাও পাঠানো হয় না।</p>
+    <p class="muted" data-i18n="footer.built">Bangla Number Words BD · একটি ব্যক্তিগত অফলাইন টুল</p>
+  </div>
+</footer>
+
+<script src="js/words.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

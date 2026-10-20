@@ -1,0 +1,164 @@
+:root {
+  --green: #0b6e4f;
+  --green-dark: #084f39;
+  --red: #c0392b;
+  --ink: #1c2b26;
+  --muted: #5d6f68;
+  --bg: #f4f7f5;
+  --card: #ffffff;
+  --line: #dde7e1;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans Bengali", "Hind Siliguri", system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 18px; }
+
+.site-header {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: #fff;
+  padding: 26px 0 22px;
+  margin-bottom: 22px;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark {
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.5);
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.brand h1 { margin: 0; font-size: 24px; }
+.tagline { margin: 4px 0 0; opacity: .85; font-size: 13.5px; }
+.lang-toggle {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.6);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.lang-toggle:hover { background: rgba(255,255,255,.28); }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 10px rgba(11,110,79,.06);
+}
+.card h2 { margin: 0 0 4px; font-size: 20px; color: var(--green-dark); }
+.hint { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+.row { display: flex; gap: 10px; }
+.row.btns { margin-top: 10px; flex-wrap: wrap; }
+.field {
+  flex: 1;
+  min-width: 0;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 17px;
+  font-family: inherit;
+  color: var(--ink);
+}
+.field:focus { outline: 2px solid var(--green); border-color: var(--green); }
+.field.area { width: 100%; resize: vertical; }
+.btn {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--green-dark); }
+.btn.ghost {
+  background: transparent;
+  color: var(--green);
+  border: 1.5px solid var(--green);
+  padding: 7px 18px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.chip {
+  background: #eaf3ee;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--green-dark);
+}
+.chip:hover { background: #d8eadf; }
+.error {
+  color: #fff;
+  background: var(--red);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  margin: 10px 0 0;
+}
+.result {
+  background: #f0f7f3;
+  border: 1px dashed var(--green);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 12px;
+}
+.result-label { margin: 0 0 4px; font-size: 13px; color: var(--muted); }
+.result-text {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--green-dark);
+  overflow-wrap: anywhere;
+}
+.empty { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+.scale-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0;
+}
+.scale-grid > div {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.scale-grid dt { font-size: 13px; color: var(--muted); }
+.scale-grid dd { margin: 2px 0 0; font-size: 17px; font-weight: 700; color: var(--green-dark); }
+
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13.5px;
+  padding: 10px 0 30px;
+}
+.site-footer .muted { opacity: .7; margin-top: 4px; }
+
+@media (max-width: 480px) {
+  .brand h1 { font-size: 20px; }
+  .brand-mark { font-size: 18px; padding: 6px 10px; }
+  .row { flex-direction: column; }
+  .btn { width: 100%; }
+  .scale-grid { grid-template-columns: 1fr; }
+}

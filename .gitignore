@@ -1,0 +1,24 @@
+# Dependencies / tooling
+node_modules/
+.npm/
+
+# Build outputs
+dist/
+build/
+out/
+*.log
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local databases / secrets (none are used by this project)
+*.sqlite
+*.sqlite3
+*.db
+.env
+.env.*
